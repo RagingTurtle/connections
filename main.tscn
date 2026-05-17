@@ -1,3 +1,26 @@
 [gd_scene format=3 uid="uid://bt6a6rx0rdsas"]
 
+[ext_resource type="Script" uid="uid://14od76y7w4fe" path="res://main.gd" id="1_0xm2m"]
+[ext_resource type="Texture2D" uid="uid://cg24i31c7u7vi" path="res://assets/green_circle.png" id="2_h2yge"]
+
+[sub_resource type="Curve" id="Curve_0xm2m"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.47191018), 0.0, 0.0, 0, 0]
+point_count = 2
+
 [node name="Main" type="Node2D" unique_id=840409312]
+script = ExtResource("1_0xm2m")
+
+[node name="StartSprite2D" type="Sprite2D" parent="." unique_id=660082064]
+position = Vector2(143, 145)
+texture = ExtResource("2_h2yge")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=2078824621 groups=["connection"]]
+position = Vector2(305, 179)
+texture = ExtResource("2_h2yge")
+
+[node name="Sprite2D3" type="Sprite2D" parent="." unique_id=1509667638 groups=["connection"]]
+position = Vector2(213, 243)
+texture = ExtResource("2_h2yge")
+
+[node name="Line2D" type="Line2D" parent="." unique_id=498826814]
+width_curve = SubResource("Curve_0xm2m")
