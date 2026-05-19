@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://cp7fso21vpw4f"]
+
+[ext_resource type="Script" uid="uid://b62mfrrij7pb8" path="res://scripts/animated_line.gd" id="1_j544a"]
+
+[node name="AnimatedLine" type="Line2D" unique_id=846930561]
+script = ExtResource("1_j544a")

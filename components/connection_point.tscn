@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://c84bh4alndy6c"]
+
+[ext_resource type="Script" uid="uid://rfqh8jc62ymt" path="res://scripts/connection_point.gd" id="1_i4aoo"]
+[ext_resource type="Texture2D" uid="uid://cg24i31c7u7vi" path="res://assets/green_circle.png" id="2_ncj0o"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_a2hul"]
+radius = 8.0
+
+[node name="ConnectionPoint" type="Area2D" unique_id=1011892367 groups=["connection"]]
+script = ExtResource("1_i4aoo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=973314354]
+shape = SubResource("CircleShape2D_a2hul")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=606202890]
+texture = ExtResource("2_ncj0o")

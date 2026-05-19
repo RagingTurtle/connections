@@ -14,7 +14,6 @@ config/name="connections"
 config/description="GameDev.tv Game Jam 2026
 Theme: Connections"
 config/features=PackedStringArray("4.6", "GL Compatibility")
-config/icon="res://icon.svg"
 
 [display]
 

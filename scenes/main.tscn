@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://bt6a6rx0rdsas"]
+
+[ext_resource type="Script" uid="uid://14od76y7w4fe" path="res://scripts/main.gd" id="1_sugp2"]
+[ext_resource type="PackedScene" uid="uid://c84bh4alndy6c" path="res://components/connection_point.tscn" id="2_jyhfs"]
+[ext_resource type="PackedScene" uid="uid://cp7fso21vpw4f" path="res://components/animated_line.tscn" id="3_tbgi4"]
+
+[node name="Main" type="Node2D" unique_id=840409312]
+script = ExtResource("1_sugp2")
+
+[node name="StartConnectionPoint" parent="." unique_id=1011892367 instance=ExtResource("2_jyhfs")]
+position = Vector2(29, 35)
+
+[node name="ConnectionPoint2" parent="." unique_id=846459662 instance=ExtResource("2_jyhfs")]
+position = Vector2(65, 49)
+
+[node name="ConnectionPoint3" parent="." unique_id=262018277 instance=ExtResource("2_jyhfs")]
+position = Vector2(132, 31)
+
+[node name="AnimatedLine" parent="." unique_id=846930561 instance=ExtResource("3_tbgi4")]
