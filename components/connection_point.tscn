@@ -2,9 +2,14 @@
 
 [ext_resource type="Script" uid="uid://rfqh8jc62ymt" path="res://scripts/connection_point.gd" id="1_i4aoo"]
 [ext_resource type="Texture2D" uid="uid://cg24i31c7u7vi" path="res://assets/green_circle.png" id="2_ncj0o"]
+[ext_resource type="AudioStream" uid="uid://6r1ueampalac" path="res://assets/humordome-fairy-sparkle-451415.mp3" id="3_uqrxt"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_a2hul"]
 radius = 8.0
+
+[sub_resource type="Curve" id="Curve_ukhj3"]
+_data = [Vector2(0, 1), 0.0, 1.4, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
 
 [node name="ConnectionPoint" type="Area2D" unique_id=1011892367 groups=["connection"]]
 script = ExtResource("1_i4aoo")
@@ -19,3 +24,19 @@ texture = ExtResource("2_ncj0o")
 offset_right = 40.0
 offset_bottom = 23.0
 text = "1"
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=1564873634]
+emitting = false
+amount = 20
+one_shot = true
+explosiveness = 1.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 50.0
+initial_velocity_max = 100.0
+scale_amount_max = 2.0
+scale_amount_curve = SubResource("Curve_ukhj3")
+color = Color(3.1196496, 0.7763669, 4.1334105, 1)
+
+[node name="SparklePlayer" type="AudioStreamPlayer2D" parent="." unique_id=51492858]
+stream = ExtResource("3_uqrxt")

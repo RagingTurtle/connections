@@ -10,9 +10,10 @@ config_version=5
 
 [application]
 
-config/name="connections"
+config/name="Connect the Dots"
 config/description="GameDev.tv Game Jam 2026
 Theme: Connections"
+run/main_scene="uid://b2nrmkvepgxg0"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 
 [display]
@@ -31,3 +32,5 @@ textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+viewport/hdr_2d=true
+environment/defaults/default_clear_color=Color(0, 0.101960786, 0.15686275, 1)

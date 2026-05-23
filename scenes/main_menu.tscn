@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://baqjh2hx51gu7"]
+[gd_scene format=3 uid="uid://b2nrmkvepgxg0"]
+
+[ext_resource type="Script" uid="uid://be3qprva3ltv1" path="res://scenes/main_menu.gd" id="1_l6cm7"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lcj7p"]
 bg_color = Color(0.039215688, 0.039215688, 0.07058824, 0.69803923)
@@ -48,9 +50,11 @@ corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 
-[node name="WinUI" type="CanvasLayer" unique_id=606912820]
+[node name="MainMenu" type="CanvasLayer" unique_id=606912820]
+script = ExtResource("1_l6cm7")
 
 [node name="Panel" type="Panel" parent="." unique_id=233006801]
+modulate = Color(1.8247963, 1.8247963, 1.8247963, 1)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -74,11 +78,15 @@ offset_top = 28.0
 offset_right = 77.0
 offset_bottom = 56.0
 grow_horizontal = 2
+theme_override_colors/font_color = Color(1.8247963, 1.8247963, 1.8247963, 1)
 theme_override_font_sizes/font_size = 20
-text = "Level Complete!"
+text = "Connect 
+the 
+Dots"
 horizontal_alignment = 1
 
 [node name="Button" type="Button" parent="Panel" unique_id=1593986968]
+modulate = Color(1.8247963, 1.8247963, 1.8247963, 1)
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -94,4 +102,6 @@ grow_vertical = 0
 theme_override_styles/normal = SubResource("StyleBoxFlat_j84ao")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_2oms0")
 theme_override_styles/hover = SubResource("StyleBoxFlat_f3eg5")
-text = "NEXT"
+text = "PLAY"
+
+[connection signal="pressed" from="Panel/Button" to="." method="_on_button_pressed"]

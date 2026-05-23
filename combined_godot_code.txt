@@ -1,0 +1,706 @@
+﻿
+==================================================
+FILE: .\components\animated_line.tscn
+==================================================
+
+[gd_scene format=3 uid="uid://cp7fso21vpw4f"]
+
+[ext_resource type="Script" uid="uid://b62mfrrij7pb8" path="res://scripts/animated_line.gd" id="1_j544a"]
+
+[node name="AnimatedLine" type="Line2D" unique_id=846930561]
+modulate = Color(0.8245548, 0.33773082, 1.353256, 1)
+width = 8.0
+script = ExtResource("1_j544a")
+
+==================================================
+FILE: .\components\connection_point.tscn
+==================================================
+
+[gd_scene format=3 uid="uid://c84bh4alndy6c"]
+
+[ext_resource type="Script" uid="uid://rfqh8jc62ymt" path="res://scripts/connection_point.gd" id="1_i4aoo"]
+[ext_resource type="Texture2D" uid="uid://cg24i31c7u7vi" path="res://assets/green_circle.png" id="2_ncj0o"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_a2hul"]
+radius = 8.0
+
+[node name="ConnectionPoint" type="Area2D" unique_id=1011892367 groups=["connection"]]
+script = ExtResource("1_i4aoo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=973314354]
+shape = SubResource("CircleShape2D_a2hul")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=606202890]
+texture = ExtResource("2_ncj0o")
+
+[node name="Label" type="Label" parent="." unique_id=1490754778]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "1"
+
+==================================================
+FILE: .\levels\level.gd
+==================================================
+
+extends Node2D
+
+@onready var sprite_2d: Sprite2D = $Sprite2D
+
+func _ready() -> void:
+	sprite_2d.visible = false
+	
+func _on_level_complete() -> void:
+	sprite_2d.visible = true
+
+==================================================
+FILE: .\levels\level_1.tscn
+==================================================
+
+[gd_scene format=3 uid="uid://bu34syl7wjykl"]
+
+[ext_resource type="Script" uid="uid://c1bg826ihmm0e" path="res://levels/level.gd" id="1_bt44k"]
+[ext_resource type="Texture2D" uid="uid://mduppmc5vfny" path="res://levels/assets/level1.png" id="1_jirdo"]
+[ext_resource type="PackedScene" uid="uid://c84bh4alndy6c" path="res://components/connection_point.tscn" id="2_bt44k"]
+
+[node name="Level1" type="Node2D" unique_id=1723361798]
+script = ExtResource("1_bt44k")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=12137269]
+texture = ExtResource("1_jirdo")
+centered = false
+
+[node name="ConnectionPoint" parent="." unique_id=1011892367 instance=ExtResource("2_bt44k")]
+position = Vector2(136, 38)
+_point_number = 1
+
+[node name="ConnectionPoint2" parent="." unique_id=1102148457 instance=ExtResource("2_bt44k")]
+position = Vector2(538, 38)
+_point_number = 2
+
+[node name="ConnectionPoint3" parent="." unique_id=1798558152 instance=ExtResource("2_bt44k")]
+position = Vector2(538, 379)
+_point_number = 3
+
+[node name="ConnectionPoint4" parent="." unique_id=1125463362 instance=ExtResource("2_bt44k")]
+position = Vector2(138, 378)
+_point_number = 4
+
+==================================================
+FILE: .\levels\level_2.tscn
+==================================================
+
+[gd_scene format=3 uid="uid://dv56w0evb0k2b"]
+
+[ext_resource type="Script" uid="uid://c1bg826ihmm0e" path="res://levels/level.gd" id="1_0srwa"]
+[ext_resource type="PackedScene" uid="uid://c84bh4alndy6c" path="res://components/connection_point.tscn" id="2_0srwa"]
+[ext_resource type="Texture2D" uid="uid://btunvpyx3jjdj" path="res://levels/assets/level2.png" id="2_v5uil"]
+
+[node name="Level2" type="Node2D" unique_id=1723361798]
+script = ExtResource("1_0srwa")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=12137269]
+texture = ExtResource("2_v5uil")
+centered = false
+
+[node name="ConnectionPoint" parent="." unique_id=1011892367 instance=ExtResource("2_0srwa")]
+position = Vector2(136, 38)
+_point_number = 1
+
+[node name="ConnectionPoint2" parent="." unique_id=1102148457 instance=ExtResource("2_0srwa")]
+position = Vector2(538, 38)
+_point_number = 2
+
+[node name="ConnectionPoint3" parent="." unique_id=1798558152 instance=ExtResource("2_0srwa")]
+position = Vector2(538, 379)
+_point_number = 3
+
+==================================================
+FILE: .\levels\level_3.tscn
+==================================================
+
+[gd_scene format=3 uid="uid://crxl122jp11d3"]
+
+[ext_resource type="Script" uid="uid://c1bg826ihmm0e" path="res://levels/level.gd" id="1_gew73"]
+[ext_resource type="Texture2D" uid="uid://chhl3mbvv8a7o" path="res://levels/assets/level3.png" id="2_gew73"]
+[ext_resource type="PackedScene" uid="uid://c84bh4alndy6c" path="res://components/connection_point.tscn" id="3_20opy"]
+
+[node name="Level2" type="Node2D" unique_id=1723361798]
+script = ExtResource("1_gew73")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=12137269]
+position = Vector2(59.999985, 24)
+scale = Vector2(0.83999944, 1.0799999)
+texture = ExtResource("2_gew73")
+centered = false
+
+[node name="ConnectionPoint" parent="." unique_id=1011892367 instance=ExtResource("3_20opy")]
+position = Vector2(174, 223)
+_point_number = 1
+
+[node name="ConnectionPoint2" parent="." unique_id=1102148457 instance=ExtResource("3_20opy")]
+position = Vector2(323, 66)
+_point_number = 2
+
+[node name="ConnectionPoint3" parent="." unique_id=1798558152 instance=ExtResource("3_20opy")]
+position = Vector2(347, 65)
+_point_number = 3
+
+[node name="ConnectionPoint4" parent="." unique_id=1511110310 instance=ExtResource("3_20opy")]
+position = Vector2(514, 317)
+_point_number = 4
+
+[node name="ConnectionPoint5" parent="." unique_id=1939716 instance=ExtResource("3_20opy")]
+position = Vector2(514, 350)
+_point_number = 5
+
+[node name="ConnectionPoint6" parent="." unique_id=252326362 instance=ExtResource("3_20opy")]
+position = Vector2(351, 433)
+_point_number = 6
+
+[node name="ConnectionPoint7" parent="." unique_id=814669979 instance=ExtResource("3_20opy")]
+position = Vector2(224, 433)
+_point_number = 7
+
+[node name="ConnectionPoint8" parent="." unique_id=862793226 instance=ExtResource("3_20opy")]
+position = Vector2(174, 338)
+_point_number = 8
+
+==================================================
+FILE: .\levels\level_4.tscn
+==================================================
+
+[gd_scene format=3 uid="uid://hp08cnvwtyeh"]
+
+[ext_resource type="Script" uid="uid://c1bg826ihmm0e" path="res://levels/level.gd" id="1_s4mq8"]
+[ext_resource type="Texture2D" uid="uid://hswioqbmbfgd" path="res://icon.svg" id="2_s4mq8"]
+[ext_resource type="PackedScene" uid="uid://c84bh4alndy6c" path="res://components/connection_point.tscn" id="3_t6q73"]
+
+[node name="Level2" type="Node2D" unique_id=1723361798]
+script = ExtResource("1_s4mq8")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=12137269]
+position = Vector2(190.99998, 108)
+scale = Vector2(1.88, 1.88)
+texture = ExtResource("2_s4mq8")
+centered = false
+
+[node name="ConnectionPoint" parent="." unique_id=1011892367 instance=ExtResource("3_t6q73")]
+position = Vector2(236, 212)
+_point_number = 1
+
+[node name="ConnectionPoint2" parent="." unique_id=1102148457 instance=ExtResource("3_t6q73")]
+position = Vector2(224, 197)
+_point_number = 2
+
+[node name="ConnectionPoint3" parent="." unique_id=1798558152 instance=ExtResource("3_t6q73")]
+position = Vector2(241, 179)
+_point_number = 3
+
+[node name="ConnectionPoint4" parent="." unique_id=1511110310 instance=ExtResource("3_t6q73")]
+position = Vector2(255, 185)
+_point_number = 4
+
+[node name="ConnectionPoint5" parent="." unique_id=1939716 instance=ExtResource("3_t6q73")]
+position = Vector2(273, 174)
+_point_number = 5
+
+[node name="ConnectionPoint6" parent="." unique_id=252326362 instance=ExtResource("3_t6q73")]
+position = Vector2(271, 156)
+_point_number = 6
+
+[node name="ConnectionPoint7" parent="." unique_id=814669979 instance=ExtResource("3_t6q73")]
+position = Vector2(294, 146)
+_point_number = 7
+
+[node name="ConnectionPoint8" parent="." unique_id=862793226 instance=ExtResource("3_t6q73")]
+position = Vector2(301, 161)
+_point_number = 8
+
+[node name="ConnectionPoint9" parent="." unique_id=137024013 instance=ExtResource("3_t6q73")]
+position = Vector2(320, 165)
+_point_number = 9
+
+[node name="ConnectionPoint10" parent="." unique_id=1751767800 instance=ExtResource("3_t6q73")]
+position = Vector2(330, 147)
+_point_number = 10
+
+[node name="ConnectionPoint11" parent="." unique_id=1417292412 instance=ExtResource("3_t6q73")]
+position = Vector2(352, 155)
+_point_number = 11
+
+[node name="ConnectionPoint12" parent="." unique_id=641114426 instance=ExtResource("3_t6q73")]
+position = Vector2(350, 174)
+_point_number = 12
+
+[node name="ConnectionPoint13" parent="." unique_id=945220505 instance=ExtResource("3_t6q73")]
+position = Vector2(369, 184)
+_point_number = 13
+
+[node name="ConnectionPoint14" parent="." unique_id=780977304 instance=ExtResource("3_t6q73")]
+position = Vector2(384, 178)
+_point_number = 14
+
+[node name="ConnectionPoint15" parent="." unique_id=1912457412 instance=ExtResource("3_t6q73")]
+position = Vector2(402, 193)
+_point_number = 15
+
+[node name="ConnectionPoint16" parent="." unique_id=1120057700 instance=ExtResource("3_t6q73")]
+position = Vector2(388, 210)
+_point_number = 16
+
+[node name="ConnectionPoint17" parent="." unique_id=314774600 instance=ExtResource("3_t6q73")]
+position = Vector2(389, 282)
+_point_number = 17
+
+[node name="ConnectionPoint18" parent="." unique_id=1237231517 instance=ExtResource("3_t6q73")]
+position = Vector2(348, 309)
+_point_number = 18
+
+[node name="ConnectionPoint19" parent="." unique_id=1542317001 instance=ExtResource("3_t6q73")]
+position = Vector2(285, 309)
+_point_number = 19
+
+[node name="ConnectionPoint20" parent="." unique_id=1834927711 instance=ExtResource("3_t6q73")]
+position = Vector2(235, 281)
+_point_number = 20
+
+==================================================
+FILE: .\scenes\main.tscn
+==================================================
+
+[gd_scene format=3 uid="uid://bt6a6rx0rdsas"]
+
+[ext_resource type="Script" uid="uid://14od76y7w4fe" path="res://scripts/main.gd" id="1_sugp2"]
+[ext_resource type="PackedScene" uid="uid://bu34syl7wjykl" path="res://levels/level_1.tscn" id="3_sugp2"]
+[ext_resource type="PackedScene" uid="uid://cp7fso21vpw4f" path="res://components/animated_line.tscn" id="3_tbgi4"]
+[ext_resource type="PackedScene" uid="uid://dv56w0evb0k2b" path="res://levels/level_2.tscn" id="3_tefeu"]
+[ext_resource type="PackedScene" uid="uid://baqjh2hx51gu7" path="res://scenes/win_ui.tscn" id="4_jyhfs"]
+[ext_resource type="PackedScene" uid="uid://crxl122jp11d3" path="res://levels/level_3.tscn" id="4_o6xl0"]
+[ext_resource type="PackedScene" uid="uid://hp08cnvwtyeh" path="res://levels/level_4.tscn" id="5_tipki"]
+
+[sub_resource type="Environment" id="Environment_tbgi4"]
+background_mode = 3
+glow_enabled = true
+glow_intensity = 2.2
+glow_bloom = 0.15
+
+[node name="Main" type="Node2D" unique_id=840409312]
+script = ExtResource("1_sugp2")
+levels = Array[PackedScene]([ExtResource("3_sugp2"), ExtResource("3_tefeu"), ExtResource("4_o6xl0"), ExtResource("5_tipki")])
+
+[node name="AnimatedLine" parent="." unique_id=846930561 instance=ExtResource("3_tbgi4")]
+z_index = 1
+
+[node name="WinUI" parent="." unique_id=606912820 instance=ExtResource("4_jyhfs")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1249863533]
+environment = SubResource("Environment_tbgi4")
+
+==================================================
+FILE: .\scenes\main_menu.gd
+==================================================
+
+extends CanvasLayer
+
+const MAIN = preload("uid://bt6a6rx0rdsas")
+
+
+func _on_button_pressed() -> void:
+	get_tree().change_scene_to_packed(MAIN)
+
+==================================================
+FILE: .\scenes\main_menu.tscn
+==================================================
+
+[gd_scene format=3 uid="uid://b2nrmkvepgxg0"]
+
+[ext_resource type="Script" uid="uid://be3qprva3ltv1" path="res://scenes/main_menu.gd" id="1_l6cm7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lcj7p"]
+bg_color = Color(0.039215688, 0.039215688, 0.07058824, 0.69803923)
+border_width_left = 1
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 1
+border_color = Color(1, 0, 1, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j84ao"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 2
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 2
+border_color = Color(1, 0, 1, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2oms0"]
+bg_color = Color(0, 0, 0, 0)
+border_width_left = 2
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 2
+border_color = Color(1, 0, 1, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f3eg5"]
+bg_color = Color(1, 0, 1, 0.34901962)
+border_width_left = 2
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 2
+border_color = Color(1, 0, 1, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[node name="MainMenu" type="CanvasLayer" unique_id=606912820]
+script = ExtResource("1_l6cm7")
+
+[node name="Panel" type="Panel" parent="." unique_id=233006801]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -100.0
+offset_right = 150.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_lcj7p")
+
+[node name="Label" type="Label" parent="Panel" unique_id=350291211]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -77.0
+offset_top = 28.0
+offset_right = 77.0
+offset_bottom = 56.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 20
+text = "Connect 
+the 
+Dots"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="Panel" unique_id=1593986968]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -45.0
+offset_top = -57.0
+offset_right = 45.0
+offset_bottom = -17.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_j84ao")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_2oms0")
+theme_override_styles/hover = SubResource("StyleBoxFlat_f3eg5")
+text = "PLAY"
+
+[connection signal="pressed" from="Panel/Button" to="." method="_on_button_pressed"]
+
+==================================================
+FILE: .\scenes\win_ui.tscn
+==================================================
+
+[gd_scene format=3 uid="uid://baqjh2hx51gu7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lcj7p"]
+bg_color = Color(0.039215688, 0.039215688, 0.07058824, 0.69803923)
+border_width_left = 1
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 1
+border_color = Color(1, 0, 1, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j84ao"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 2
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 2
+border_color = Color(1, 0, 1, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2oms0"]
+bg_color = Color(0, 0, 0, 0)
+border_width_left = 2
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 2
+border_color = Color(1, 0, 1, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f3eg5"]
+bg_color = Color(1, 0, 1, 0.34901962)
+border_width_left = 2
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 2
+border_color = Color(1, 0, 1, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[node name="WinUI" type="CanvasLayer" unique_id=606912820]
+
+[node name="Panel" type="Panel" parent="." unique_id=233006801]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -100.0
+offset_right = 150.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_lcj7p")
+
+[node name="Label" type="Label" parent="Panel" unique_id=350291211]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -77.0
+offset_top = 28.0
+offset_right = 77.0
+offset_bottom = 56.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 20
+text = "Level Complete!"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="Panel" unique_id=1593986968]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -45.0
+offset_top = -57.0
+offset_right = 45.0
+offset_bottom = -17.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_j84ao")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_2oms0")
+theme_override_styles/hover = SubResource("StyleBoxFlat_f3eg5")
+text = "NEXT"
+
+==================================================
+FILE: .\scripts\animated_line.gd
+==================================================
+
+class_name AnimatedLine
+extends Line2D
+
+const LINE_SPEED: float = 300.0
+var active_tween: Tween 
+
+func clear_and_start(start_global_pos: Vector2) -> void:
+	clear_points()
+	add_point(to_local(start_global_pos))
+	
+func draw_to_target(target_global_pos: Vector2, is_valid: bool) -> void:
+	if active_tween and active_tween.is_running():
+		active_tween.kill()
+	
+	var local_target: Vector2 = to_local(target_global_pos)
+	var last_idx: int = get_point_count() - 1
+	var start_local_pos: Vector2 = get_point_position(last_idx)
+	
+	var distance: float = start_local_pos.distance_to(local_target)
+	
+	if distance < 0.01:
+		return
+		
+	var duration: float = distance / LINE_SPEED
+	active_tween = create_tween()
+	
+	var point_index: int = get_point_count()
+	add_point(start_local_pos)
+	
+	
+	active_tween.tween_method(
+		_update_point_position.bind(point_index),
+		start_local_pos,
+		local_target,
+		duration
+	)
+	
+	if not is_valid:
+		active_tween.tween_method(
+			_update_point_position.bind(point_index),
+			local_target,
+			start_local_pos,
+			duration
+		)
+		active_tween.tween_callback(remove_point.bind(point_index))
+		
+func _update_point_position(current_pos: Vector2, index: int) -> void:
+	set_point_position(index, current_pos)
+
+==================================================
+FILE: .\scripts\connection_point.gd
+==================================================
+
+class_name ConnectionPoint
+extends Area2D
+
+signal clicked(point: ConnectionPoint)
+@export var _point_number: int = 0
+@onready var label: Label = $Label
+
+var point_number: int:
+	get:
+		return _point_number
+	set(value):
+		_point_number = value
+		label.text = str(_point_number)
+
+func _ready() -> void:
+	input_pickable = true
+	point_number = point_number
+	
+func _input_event(_viewport: Viewport, event: InputEvent, _shape_idx: int) -> void:
+	if event is InputEventMouseButton and event.is_pressed() and event.button_index == MOUSE_BUTTON_LEFT:
+		clicked.emit(self)
+
+func connected() -> void:
+	if point_number != 0:
+		input_pickable = false
+
+func reset() -> void:
+		input_pickable = true
+	
+
+==================================================
+FILE: .\scripts\main.gd
+==================================================
+
+extends Node2D
+
+signal level_complete
+
+@onready var line: AnimatedLine = $AnimatedLine
+@onready var win_ui: CanvasLayer = $WinUI
+@export var levels: Array[PackedScene]
+
+var current_level_index: int = 0
+var current_level: Node2D
+var points_list: Array
+var current_connection_point_index: int = 0
+var wait_for_next: bool = false
+
+func _ready() -> void:
+	if levels.size() > 0:
+		_instantiate_level(current_level_index)
+	win_ui.get_node("Panel/Button").pressed.connect(next_button_pressed)
+
+func _instantiate_level(index: int) -> void:
+	current_level = levels[index].instantiate()
+	add_child(current_level)
+	load_level(current_level)
+	level_complete.connect(current_level._on_level_complete)
+
+func _input(event: InputEvent) -> void:
+	if wait_for_next:
+		return
+		
+	if event is InputEventMouseButton and event.is_pressed() and event.button_index == MOUSE_BUTTON_LEFT:
+		if line.active_tween and line.active_tween.is_running():
+			return
+			
+		get_tree().process_frame.connect(
+			func(): _handle_generic_click(get_global_mouse_position()),
+			CONNECT_ONE_SHOT
+		)
+	
+func _on_connection_clicked(point: ConnectionPoint) -> void:
+	if wait_for_next: 
+		return
+	if line.active_tween and line.active_tween.is_running():
+		return
+		
+	var next_index: int = (current_connection_point_index + 1) % points_list.size()
+	var is_next: bool = point.point_number == points_list[next_index].point_number
+	
+	line.draw_to_target(point.global_position, is_next)
+	
+	if is_next:
+		point.connected()
+		current_connection_point_index = next_index
+		if current_connection_point_index == 0:
+			line.active_tween.finished.connect(you_win, CONNECT_ONE_SHOT)
+		
+func _handle_generic_click(click_pos: Vector2) -> void:
+	if not line.active_tween or not line.active_tween.is_running():
+		line.draw_to_target(click_pos, false)
+
+func load_level(level: Node2D) -> void:
+	wait_for_next = false
+	win_ui.visible = false
+	current_connection_point_index = 0 
+	
+	if level.has_node("Sprite2D"):
+		level.get_node("Sprite2D").visible = false
+
+	points_list.clear()
+	for child in level.get_children():
+		if child is ConnectionPoint:
+			if not child.clicked.is_connected(_on_connection_clicked):
+				child.clicked.connect(_on_connection_clicked)
+			child.reset()
+			points_list.append(child)
+			
+	points_list.sort_custom(sorted_points)
+	
+	if points_list.size() > 0:
+		line.clear_and_start(points_list[current_connection_point_index].global_position)
+	
+func sorted_points(a: ConnectionPoint, b: ConnectionPoint) -> bool:
+	return a.point_number < b.point_number
+
+func you_win() -> void:
+	level_complete.emit()
+	#if current_level.has_node("Sprite2D"):
+		#current_level.get_node("Sprite2D").visible = true
+	win_ui.visible = true
+	wait_for_next = true
+
+func next_button_pressed() -> void:
+	current_level.queue_free()
+	current_level_index = (current_level_index + 1) % levels.size()
+	_instantiate_level(current_level_index)

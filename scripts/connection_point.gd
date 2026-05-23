@@ -4,6 +4,8 @@ extends Area2D
 signal clicked(point: ConnectionPoint)
 @export var _point_number: int = 0
 @onready var label: Label = $Label
+@onready var particles: CPUParticles2D = $CPUParticles2D
+@onready var sparkle_player: AudioStreamPlayer2D = $SparklePlayer
 
 var point_number: int:
 	get:
@@ -27,3 +29,6 @@ func connected() -> void:
 func reset() -> void:
 		input_pickable = true
 	
+func emit_particles() -> void:
+	sparkle_player.play()
+	particles.restart()

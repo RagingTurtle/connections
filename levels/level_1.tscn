@@ -1,12 +1,13 @@
 [gd_scene format=3 uid="uid://bu34syl7wjykl"]
 
+[ext_resource type="Script" uid="uid://c1bg826ihmm0e" path="res://levels/level.gd" id="1_bt44k"]
 [ext_resource type="Texture2D" uid="uid://mduppmc5vfny" path="res://levels/assets/level1.png" id="1_jirdo"]
 [ext_resource type="PackedScene" uid="uid://c84bh4alndy6c" path="res://components/connection_point.tscn" id="2_bt44k"]
 
 [node name="Level1" type="Node2D" unique_id=1723361798]
+script = ExtResource("1_bt44k")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=12137269]
-visible = false
 texture = ExtResource("1_jirdo")
 centered = false
 

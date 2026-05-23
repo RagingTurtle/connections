@@ -3,4 +3,6 @@
 [ext_resource type="Script" uid="uid://b62mfrrij7pb8" path="res://scripts/animated_line.gd" id="1_j544a"]
 
 [node name="AnimatedLine" type="Line2D" unique_id=846930561]
+modulate = Color(0.8245548, 0.33773082, 1.353256, 1)
+width = 8.0
 script = ExtResource("1_j544a")

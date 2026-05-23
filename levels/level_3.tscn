@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://crxl122jp11d3"]
+
+[ext_resource type="Script" uid="uid://c1bg826ihmm0e" path="res://levels/level.gd" id="1_gew73"]
+[ext_resource type="Texture2D" uid="uid://chhl3mbvv8a7o" path="res://levels/assets/level3.png" id="2_gew73"]
+[ext_resource type="PackedScene" uid="uid://c84bh4alndy6c" path="res://components/connection_point.tscn" id="3_20opy"]
+
+[node name="Level2" type="Node2D" unique_id=1723361798]
+script = ExtResource("1_gew73")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=12137269]
+position = Vector2(59.999985, 24)
+scale = Vector2(0.83999944, 1.0799999)
+texture = ExtResource("2_gew73")
+centered = false
+
+[node name="ConnectionPoint" parent="." unique_id=1011892367 instance=ExtResource("3_20opy")]
+position = Vector2(174, 223)
+_point_number = 1
+
+[node name="ConnectionPoint2" parent="." unique_id=1102148457 instance=ExtResource("3_20opy")]
+position = Vector2(323, 66)
+_point_number = 2
+
+[node name="ConnectionPoint3" parent="." unique_id=1798558152 instance=ExtResource("3_20opy")]
+position = Vector2(347, 65)
+_point_number = 3
+
+[node name="ConnectionPoint4" parent="." unique_id=1511110310 instance=ExtResource("3_20opy")]
+position = Vector2(514, 317)
+_point_number = 4
+
+[node name="ConnectionPoint5" parent="." unique_id=1939716 instance=ExtResource("3_20opy")]
+position = Vector2(514, 350)
+_point_number = 5
+
+[node name="ConnectionPoint6" parent="." unique_id=252326362 instance=ExtResource("3_20opy")]
+position = Vector2(351, 433)
+_point_number = 6
+
+[node name="ConnectionPoint7" parent="." unique_id=814669979 instance=ExtResource("3_20opy")]
+position = Vector2(224, 433)
+_point_number = 7
+
+[node name="ConnectionPoint8" parent="." unique_id=862793226 instance=ExtResource("3_20opy")]
+position = Vector2(174, 338)
+_point_number = 8

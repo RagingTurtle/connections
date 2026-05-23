@@ -1,8 +1,11 @@
 extends Node2D
 
+signal level_complete
+
 @onready var line: AnimatedLine = $AnimatedLine
-@onready var win_ui: Control = $WinUI
+@onready var win_ui: CanvasLayer = $WinUI
 @export var levels: Array[PackedScene]
+@onready var win_sound: AudioStreamPlayer = $WinSound
 
 var current_level_index: int = 0
 var current_level: Node2D
@@ -19,6 +22,7 @@ func _instantiate_level(index: int) -> void:
 	current_level = levels[index].instantiate()
 	add_child(current_level)
 	load_level(current_level)
+	level_complete.connect(current_level._on_level_complete)
 
 func _input(event: InputEvent) -> void:
 	if wait_for_next:
@@ -46,6 +50,7 @@ func _on_connection_clicked(point: ConnectionPoint) -> void:
 	
 	if is_next:
 		point.connected()
+		point.emit_particles()
 		current_connection_point_index = next_index
 		if current_connection_point_index == 0:
 			line.active_tween.finished.connect(you_win, CONNECT_ONE_SHOT)
@@ -53,6 +58,7 @@ func _on_connection_clicked(point: ConnectionPoint) -> void:
 func _handle_generic_click(click_pos: Vector2) -> void:
 	if not line.active_tween or not line.active_tween.is_running():
 		line.draw_to_target(click_pos, false)
+		$FailureSound.play()
 
 func load_level(level: Node2D) -> void:
 	wait_for_next = false
@@ -79,8 +85,8 @@ func sorted_points(a: ConnectionPoint, b: ConnectionPoint) -> bool:
 	return a.point_number < b.point_number
 
 func you_win() -> void:
-	if current_level.has_node("Sprite2D"):
-		current_level.get_node("Sprite2D").visible = true
+	level_complete.emit()
+	win_sound.play()
 	win_ui.visible = true
 	wait_for_next = true
 
