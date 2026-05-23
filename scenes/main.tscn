@@ -1,19 +1,31 @@
 [gd_scene format=3 uid="uid://bt6a6rx0rdsas"]
 
 [ext_resource type="Script" uid="uid://14od76y7w4fe" path="res://scripts/main.gd" id="1_sugp2"]
-[ext_resource type="PackedScene" uid="uid://c84bh4alndy6c" path="res://components/connection_point.tscn" id="2_jyhfs"]
+[ext_resource type="PackedScene" uid="uid://bu34syl7wjykl" path="res://levels/level_1.tscn" id="3_sugp2"]
 [ext_resource type="PackedScene" uid="uid://cp7fso21vpw4f" path="res://components/animated_line.tscn" id="3_tbgi4"]
+[ext_resource type="PackedScene" uid="uid://dv56w0evb0k2b" path="res://levels/level_2.tscn" id="3_tefeu"]
+[ext_resource type="PackedScene" uid="uid://b2nrmkvepgxg0" path="res://scenes/win_ui.tscn" id="4_jyhfs"]
 
 [node name="Main" type="Node2D" unique_id=840409312]
 script = ExtResource("1_sugp2")
-
-[node name="StartConnectionPoint" parent="." unique_id=1011892367 instance=ExtResource("2_jyhfs")]
-position = Vector2(29, 35)
-
-[node name="ConnectionPoint2" parent="." unique_id=846459662 instance=ExtResource("2_jyhfs")]
-position = Vector2(65, 49)
-
-[node name="ConnectionPoint3" parent="." unique_id=262018277 instance=ExtResource("2_jyhfs")]
-position = Vector2(132, 31)
+levels = Array[PackedScene]([ExtResource("3_sugp2"), ExtResource("3_tefeu")])
 
 [node name="AnimatedLine" parent="." unique_id=846930561 instance=ExtResource("3_tbgi4")]
+z_index = 1
+
+[node name="WinUI" parent="." unique_id=709888172 instance=ExtResource("4_jyhfs")]
+visible = false
+z_index = 1
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 320.0
+offset_top = 240.0
+offset_right = 320.0
+offset_bottom = 240.0
+grow_horizontal = 1
+grow_vertical = 1
+size_flags_horizontal = 6
+size_flags_vertical = 6

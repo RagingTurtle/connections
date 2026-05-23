@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://dv56w0evb0k2b"]
+
+[ext_resource type="Texture2D" uid="uid://mduppmc5vfny" path="res://levels/assets/level1.png" id="1_pqqg8"]
+[ext_resource type="PackedScene" uid="uid://c84bh4alndy6c" path="res://components/connection_point.tscn" id="2_0srwa"]
+
+[node name="Level2" type="Node2D" unique_id=1723361798]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=12137269]
+visible = false
+texture = ExtResource("1_pqqg8")
+centered = false
+
+[node name="ConnectionPoint" parent="." unique_id=1011892367 instance=ExtResource("2_0srwa")]
+position = Vector2(136, 38)
+_point_number = 1
+
+[node name="ConnectionPoint2" parent="." unique_id=1102148457 instance=ExtResource("2_0srwa")]
+position = Vector2(538, 38)
+_point_number = 2
+
+[node name="ConnectionPoint3" parent="." unique_id=1798558152 instance=ExtResource("2_0srwa")]
+position = Vector2(538, 379)
+_point_number = 3

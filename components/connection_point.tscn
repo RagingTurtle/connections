@@ -14,3 +14,8 @@ shape = SubResource("CircleShape2D_a2hul")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=606202890]
 texture = ExtResource("2_ncj0o")
+
+[node name="Label" type="Label" parent="." unique_id=1490754778]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "1"
