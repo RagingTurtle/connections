@@ -12,6 +12,7 @@ _data = [Vector2(0, 1), 0.0, 1.4, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 2
 
 [node name="ConnectionPoint" type="Area2D" unique_id=1011892367 node_paths=PackedStringArray("label_display") groups=["connection"]]
+collision_priority = 10.0
 script = ExtResource("1_ytkf5")
 label_display = NodePath("Label")
 

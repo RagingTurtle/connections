@@ -20,25 +20,15 @@ func _ready() -> void:
 	if levels.size() > 0:
 		_instantiate_level(current_level_index)
 	win_ui.next_requested.connect(next_button_pressed)
-
+	
+	if has_node("InteractionBackground"):
+		$InteractionBackground.background_clicked.connect(_handle_generic_click)
+		
 func _instantiate_level(index: int) -> void:
 	current_level = levels[index].instantiate()
 	add_child(current_level)
 	load_level(current_level)
 	level_complete.connect(current_level._on_level_complete)
-
-func _input(event: InputEvent) -> void:
-	if wait_for_next:
-		return
-		
-	if event is InputEventMouseButton and event.is_pressed() and event.button_index == MOUSE_BUTTON_LEFT:
-		if line.has_method("is_busy") and line.is_busy():
-			return
-			
-		get_tree().process_frame.connect(
-			func(): _handle_generic_click(get_global_mouse_position()),
-			CONNECT_ONE_SHOT
-		)
 	
 func _on_connection_clicked(point: ConnectionPoint) -> void:
 	if wait_for_next: 
@@ -61,7 +51,7 @@ func _on_connection_clicked(point: ConnectionPoint) -> void:
 			you_win()
 		
 func _handle_generic_click(click_pos: Vector2) -> void:
-	if line.has_method("is_busy") and line.is_busy():
+	if wait_for_next or (line.has_method("is_busy") and line.is_busy()):
 		return
 		
 	connection_attempted.emit(click_pos, false)

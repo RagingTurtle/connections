@@ -10,6 +10,7 @@
 [ext_resource type="AudioStream" uid="uid://v3h14ilql75p" path="res://assets/audio/sfx/floraphonic-classic-game-action-negative-18-224576.mp3" id="8_tipki"]
 [ext_resource type="AudioStream" uid="uid://c26lmnf0horkw" path="res://assets/audio/sfx/freesound_community-success-fanfare-trumpets-6185.mp3" id="9_choun"]
 [ext_resource type="AudioStream" uid="uid://i82ouo76vnus" path="res://assets/audio/music/freesound_community-bit-crushed-lofi-synthomatic-2-34102.mp3" id="10_ya4ey"]
+[ext_resource type="Script" uid="uid://cyldcjykplyu5" path="res://components/interaction_background.gd" id="11_rayt5"]
 
 [sub_resource type="Environment" id="Environment_tbgi4"]
 background_mode = 3
@@ -17,6 +18,9 @@ glow_enabled = true
 glow_intensity = 1.5
 glow_bloom = 0.44
 glow_hdr_threshold = 0.9
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_510js"]
+size = Vector2(640, 480)
 
 [node name="Main" type="Node2D" unique_id=840409312]
 script = ExtResource("1_sugp2")
@@ -41,3 +45,11 @@ stream = ExtResource("10_ya4ey")
 volume_db = -20.392
 autoplay = true
 parameters/looping = true
+
+[node name="InteractionBackground" type="Area2D" parent="." unique_id=787752172]
+collision_priority = 0.0
+script = ExtResource("11_rayt5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionBackground" unique_id=1645099636]
+position = Vector2(320, 240)
+shape = SubResource("RectangleShape2D_510js")
