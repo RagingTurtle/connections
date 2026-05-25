@@ -1,8 +1,10 @@
 extends Node2D
 
 signal level_complete
+signal line_started(start_position: Vector2)
+signal connection_attempted(target_position: Vector2, is_valid: bool)
 
-@onready var line: AnimatedLine = $AnimatedLine
+@onready var line: Node2D = $AnimatedLine
 @onready var win_ui: CanvasLayer = $WinUI
 @export var levels: Array[PackedScene]
 @onready var win_sound: AudioStreamPlayer = $WinSound
@@ -29,7 +31,7 @@ func _input(event: InputEvent) -> void:
 		return
 		
 	if event is InputEventMouseButton and event.is_pressed() and event.button_index == MOUSE_BUTTON_LEFT:
-		if line.active_tween and line.active_tween.is_running():
+		if line.has_method("is_busy") and line.is_busy():
 			return
 			
 		get_tree().process_frame.connect(
@@ -40,25 +42,29 @@ func _input(event: InputEvent) -> void:
 func _on_connection_clicked(point: ConnectionPoint) -> void:
 	if wait_for_next: 
 		return
-	if line.active_tween and line.active_tween.is_running():
+	if line.has_method("is_busy") and line.is_busy():
 		return
 		
 	var next_index: int = (current_connection_point_index + 1) % points_list.size()
 	var is_next: bool = point.point_number == points_list[next_index].point_number
 	
-	line.draw_to_target(point.global_position, is_next)
+	connection_attempted.emit(point.global_position, is_next)
 	
 	if is_next:
 		point.connected()
 		point.emit_particles()
 		current_connection_point_index = next_index
 		if current_connection_point_index == 0:
-			line.active_tween.finished.connect(you_win, CONNECT_ONE_SHOT)
+			if line.has_signal("animation_finished"):
+				await line.animation_finished
+			you_win()
 		
 func _handle_generic_click(click_pos: Vector2) -> void:
-	if not line.active_tween or not line.active_tween.is_running():
-		line.draw_to_target(click_pos, false)
-		$FailureSound.play()
+	if line.has_method("is_busy") and line.is_busy():
+		return
+		
+	connection_attempted.emit(click_pos, false)
+	$FailureSound.play()
 
 func load_level(level: Node2D) -> void:
 	wait_for_next = false
@@ -79,7 +85,7 @@ func load_level(level: Node2D) -> void:
 	points_list.sort_custom(sorted_points)
 	
 	if points_list.size() > 0:
-		line.clear_and_start(points_list[current_connection_point_index].global_position)
+		line_started.emit(points_list[current_connection_point_index].global_position)
 	
 func sorted_points(a: ConnectionPoint, b: ConnectionPoint) -> bool:
 	return a.point_number < b.point_number
