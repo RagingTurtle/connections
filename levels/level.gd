@@ -1,6 +1,7 @@
 extends Node2D
 
 @export var completion_image: CanvasItem
+@export var rules: LevelRules = LevelRules.new()
 
 func _ready() -> void:
 	if not completion_image and has_node("Sprite2D"):

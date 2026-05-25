@@ -14,6 +14,7 @@ var current_level: Node2D
 var points_list: Array
 var current_connection_point_index: int = 0
 var wait_for_next: bool = false
+var current_rules: LevelRules
 
 func _ready() -> void:
 	if levels.size() > 0:
@@ -45,7 +46,7 @@ func _on_connection_clicked(point: ConnectionPoint) -> void:
 	if line.has_method("is_busy") and line.is_busy():
 		return
 		
-	var next_index: int = (current_connection_point_index + 1) % points_list.size()
+	var next_index: int = current_rules.get_next_index(current_connection_point_index, points_list.size())
 	var is_next: bool = point.point_number == points_list[next_index].point_number
 	
 	connection_attempted.emit(point.global_position, is_next)
@@ -54,7 +55,7 @@ func _on_connection_clicked(point: ConnectionPoint) -> void:
 		point.connected()
 		point.emit_particles()
 		current_connection_point_index = next_index
-		if current_connection_point_index == 0:
+		if current_rules.check_win_condition(current_connection_point_index, points_list.size()):
 			if line.has_signal("animation_finished"):
 				await line.animation_finished
 			you_win()
@@ -70,9 +71,13 @@ func load_level(level: Node2D) -> void:
 	wait_for_next = false
 	win_ui.visible = false
 	current_connection_point_index = 0 
-	
 	points_list.clear()
 	
+	if "rules" in level and level.rules is LevelRules:
+		current_rules = level.rules
+	else:
+		current_rules = LevelRules.new()
+		
 	var all_dots = get_tree().get_nodes_in_group("connection")
 	
 	for node in all_dots:
