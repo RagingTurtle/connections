@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://b2nrmkvepgxg0"]
 
 [ext_resource type="Script" uid="uid://be3qprva3ltv1" path="res://ui/main_menu/main_menu.gd" id="1_l6cm7"]
+[ext_resource type="PackedScene" uid="uid://bt6a6rx0rdsas" path="res://core/main.tscn" id="2_mu8pm"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lcj7p"]
 bg_color = Color(0.039215688, 0.039215688, 0.07058824, 0.69803923)
@@ -52,6 +53,7 @@ corner_radius_bottom_left = 20
 
 [node name="MainMenu" type="CanvasLayer" unique_id=606912820]
 script = ExtResource("1_l6cm7")
+start_scene = ExtResource("2_mu8pm")
 
 [node name="Panel" type="Panel" parent="." unique_id=233006801]
 modulate = Color(1.8247963, 1.8247963, 1.8247963, 1)
