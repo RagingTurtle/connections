@@ -3,10 +3,13 @@ extends Node2D
 signal level_complete
 signal line_started(start_position: Vector2)
 signal connection_attempted(target_position: Vector2, is_valid: bool)
+signal level_started
+signal level_won
+
+@export var win_ui: CanvasLayer
+@export var levels: Array[PackedScene]
 
 @onready var line: Node2D = $AnimatedLine
-@onready var win_ui: CanvasLayer = $WinUI
-@export var levels: Array[PackedScene]
 @onready var win_sound: AudioStreamPlayer = $WinSound
 
 var current_level_index: int = 0
@@ -59,7 +62,7 @@ func _handle_generic_click(click_pos: Vector2) -> void:
 
 func load_level(level: Node2D) -> void:
 	wait_for_next = false
-	win_ui.visible = false
+	level_started.emit()
 	current_connection_point_index = 0 
 	
 	if "rules" in level and level.rules is LevelRules:
@@ -80,7 +83,7 @@ func load_level(level: Node2D) -> void:
 func you_win() -> void:
 	level_complete.emit()
 	win_sound.play()
-	win_ui.visible = true
+	level_won.emit()
 	wait_for_next = true
 
 func next_button_pressed() -> void:

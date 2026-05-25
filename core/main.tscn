@@ -22,8 +22,9 @@ glow_hdr_threshold = 0.9
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_510js"]
 size = Vector2(640, 480)
 
-[node name="Main" type="Node2D" unique_id=840409312]
+[node name="Main" type="Node2D" unique_id=840409312 node_paths=PackedStringArray("win_ui")]
 script = ExtResource("1_sugp2")
+win_ui = NodePath("WinUI")
 levels = Array[PackedScene]([ExtResource("3_sugp2"), ExtResource("3_tefeu"), ExtResource("4_o6xl0"), ExtResource("5_tipki")])
 
 [node name="AnimatedLine" parent="." unique_id=846930561 instance=ExtResource("3_tbgi4")]
