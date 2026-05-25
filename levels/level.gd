@@ -12,9 +12,9 @@ func _ready() -> void:
 func _on_level_complete() -> void:
 	set_reveal_visibility(true)
 	
-func set_reveal_visibility(is_visible: bool) -> void:
+func set_reveal_visibility(should_be_is_visible: bool) -> void:
 	if completion_image:
-		completion_image.visible = is_visible
+		completion_image.visible = should_be_is_visible
 		
 func get_ordered_points() -> Array[ConnectionPoint]:
 	var ordered_points: Array[ConnectionPoint] = []
