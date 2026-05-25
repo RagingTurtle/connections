@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://baqjh2hx51gu7"]
 
+[ext_resource type="Script" uid="uid://cumks0didllpq" path="res://ui/victory_screen/win_ui.gd" id="1_47g21"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lcj7p"]
 bg_color = Color(0.039215688, 0.039215688, 0.07058824, 0.69803923)
 border_width_left = 1
@@ -49,6 +51,7 @@ corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 
 [node name="WinUI" type="CanvasLayer" unique_id=606912820]
+script = ExtResource("1_47g21")
 
 [node name="Panel" type="Panel" parent="." unique_id=233006801]
 anchors_preset = 8

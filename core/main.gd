@@ -16,7 +16,7 @@ var wait_for_next: bool = false
 func _ready() -> void:
 	if levels.size() > 0:
 		_instantiate_level(current_level_index)
-	win_ui.get_node("Panel/Button").pressed.connect(next_button_pressed)
+	win_ui.next_requested.connect(next_button_pressed)
 
 func _instantiate_level(index: int) -> void:
 	current_level = levels[index].instantiate()
@@ -69,12 +69,15 @@ func load_level(level: Node2D) -> void:
 		level.get_node("Sprite2D").visible = false
 
 	points_list.clear()
-	for child in level.get_children():
-		if child is ConnectionPoint:
-			if not child.clicked.is_connected(_on_connection_clicked):
-				child.clicked.connect(_on_connection_clicked)
-			child.reset()
-			points_list.append(child)
+	
+	var all_dots = get_tree().get_nodes_in_group("connection")
+	
+	for node in all_dots:
+		if level.is_ancestor_of(node) and node is ConnectionPoint:
+			if not node.clicked.is_connected(_on_connection_clicked):
+				node.clicked.connect(_on_connection_clicked)
+			node.reset()
+			points_list.append(node)
 			
 	points_list.sort_custom(sorted_points)
 	
