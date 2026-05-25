@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://bt6a6rx0rdsas"]
 
-[ext_resource type="Script" uid="uid://14od76y7w4fe" path="res://scripts/main.gd" id="1_sugp2"]
+[ext_resource type="Script" uid="uid://14od76y7w4fe" path="res://core/main.gd" id="1_sugp2"]
 [ext_resource type="PackedScene" uid="uid://bu34syl7wjykl" path="res://levels/level_01/level_1.tscn" id="3_sugp2"]
 [ext_resource type="PackedScene" uid="uid://cp7fso21vpw4f" path="res://components/connection_logic/animated_line.tscn" id="3_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://dv56w0evb0k2b" path="res://levels/level_02/level_2.tscn" id="3_tefeu"]
-[ext_resource type="PackedScene" uid="uid://baqjh2hx51gu7" path="res://scenes/win_ui.tscn" id="4_jyhfs"]
+[ext_resource type="PackedScene" uid="uid://baqjh2hx51gu7" path="res://ui/victory_screen/win_ui.tscn" id="4_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://crxl122jp11d3" path="res://levels/level_03/level_3.tscn" id="4_o6xl0"]
 [ext_resource type="PackedScene" uid="uid://hp08cnvwtyeh" path="res://levels/level_04/level_4.tscn" id="5_tipki"]
 [ext_resource type="AudioStream" uid="uid://v3h14ilql75p" path="res://assets/audio/sfx/floraphonic-classic-game-action-negative-18-224576.mp3" id="8_tipki"]
