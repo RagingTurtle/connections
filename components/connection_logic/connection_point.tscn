@@ -11,8 +11,9 @@ radius = 8.0
 _data = [Vector2(0, 1), 0.0, 1.4, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[node name="ConnectionPoint" type="Area2D" unique_id=1011892367 groups=["connection"]]
+[node name="ConnectionPoint" type="Area2D" unique_id=1011892367 node_paths=PackedStringArray("label_display") groups=["connection"]]
 script = ExtResource("1_ytkf5")
+label_display = NodePath("Label")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=973314354]
 shape = SubResource("CircleShape2D_a2hul")
