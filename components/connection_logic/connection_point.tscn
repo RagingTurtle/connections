@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c84bh4alndy6c"]
 
 [ext_resource type="Script" uid="uid://rfqh8jc62ymt" path="res://components/connection_logic/connection_point.gd" id="1_ytkf5"]
-[ext_resource type="Texture2D" uid="uid://cg24i31c7u7vi" path="res://assets/green_circle.png" id="2_qeqit"]
+[ext_resource type="Texture2D" uid="uid://cg24i31c7u7vi" path="res://assets/sprites/green_circle.png" id="2_qeqit"]
 [ext_resource type="AudioStream" uid="uid://6r1ueampalac" path="res://assets/audio/sfx/humordome-fairy-sparkle-451415.mp3" id="3_gfxar"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_a2hul"]

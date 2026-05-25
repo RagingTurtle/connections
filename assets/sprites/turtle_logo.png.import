@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cg24i31c7u7vi"
-path="res://.godot/imported/green_circle.png-01db39f3278107781137522ff638812e.ctex"
+uid="uid://cl4ejb6oyh80t"
+path="res://.godot/imported/turtle_logo.png-ff6884842e0e57f94c7404621cdb309a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/green_circle.png"
-dest_files=["res://.godot/imported/green_circle.png-01db39f3278107781137522ff638812e.ctex"]
+source_file="res://assets/sprites/turtle_logo.png"
+dest_files=["res://.godot/imported/turtle_logo.png-ff6884842e0e57f94c7404621cdb309a.ctex"]
 
 [params]
 
