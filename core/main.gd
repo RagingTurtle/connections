@@ -61,29 +61,21 @@ func load_level(level: Node2D) -> void:
 	wait_for_next = false
 	win_ui.visible = false
 	current_connection_point_index = 0 
-	points_list.clear()
 	
 	if "rules" in level and level.rules is LevelRules:
 		current_rules = level.rules
 	else:
 		current_rules = LevelRules.new()
 		
-	var all_dots = get_tree().get_nodes_in_group("connection")
+	points_list = level.get_ordered_points()
 	
-	for node in all_dots:
-		if level.is_ancestor_of(node) and node is ConnectionPoint:
-			if not node.clicked.is_connected(_on_connection_clicked):
-				node.clicked.connect(_on_connection_clicked)
-			node.reset()
-			points_list.append(node)
-			
-	points_list.sort_custom(sorted_points)
-	
+	for node in points_list:
+		if not node.clicked.is_connected(_on_connection_clicked):
+			node.clicked.connect(_on_connection_clicked)
+		node.reset()
+		
 	if points_list.size() > 0:
 		line_started.emit(points_list[current_connection_point_index].global_position)
-	
-func sorted_points(a: ConnectionPoint, b: ConnectionPoint) -> bool:
-	return a.point_number < b.point_number
 
 func you_win() -> void:
 	level_complete.emit()
