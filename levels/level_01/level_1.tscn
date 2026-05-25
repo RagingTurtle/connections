@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c1bg826ihmm0e" path="res://levels/level.gd" id="1_w3luw"]
 [ext_resource type="Texture2D" uid="uid://mduppmc5vfny" path="res://levels/level_01/level1.png" id="2_ij4x3"]
-[ext_resource type="PackedScene" uid="uid://c84bh4alndy6c" path="res://components/connection_point.tscn" id="3_h2vke"]
+[ext_resource type="PackedScene" uid="uid://c84bh4alndy6c" path="res://components/connection_logic/connection_point.tscn" id="3_h2vke"]
 
 [node name="Level1" type="Node2D" unique_id=1723361798]
 script = ExtResource("1_w3luw")

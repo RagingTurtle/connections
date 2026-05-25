@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://cp7fso21vpw4f"]
 
-[ext_resource type="Script" uid="uid://b62mfrrij7pb8" path="res://scripts/animated_line.gd" id="1_j544a"]
+[ext_resource type="Script" uid="uid://b62mfrrij7pb8" path="res://components/connection_logic/animated_line.gd" id="1_bslvu"]
 
 [node name="AnimatedLine" type="Line2D" unique_id=846930561]
 modulate = Color(0.8245548, 0.33773082, 1.353256, 1)
 width = 8.0
-script = ExtResource("1_j544a")
+script = ExtResource("1_bslvu")
