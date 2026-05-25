@@ -15,6 +15,7 @@ config/description="GameDev.tv Game Jam 2026
 Theme: Connections"
 run/main_scene="uid://b2nrmkvepgxg0"
 config/features=PackedStringArray("4.6", "GL Compatibility")
+boot_splash/image="uid://cl4ejb6oyh80t"
 
 [display]
 
