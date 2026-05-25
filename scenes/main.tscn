@@ -7,9 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://baqjh2hx51gu7" path="res://scenes/win_ui.tscn" id="4_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://crxl122jp11d3" path="res://levels/level_03/level_3.tscn" id="4_o6xl0"]
 [ext_resource type="PackedScene" uid="uid://hp08cnvwtyeh" path="res://levels/level_04/level_4.tscn" id="5_tipki"]
-[ext_resource type="AudioStream" uid="uid://v3h14ilql75p" path="res://assets/floraphonic-classic-game-action-negative-18-224576.mp3" id="8_tipki"]
-[ext_resource type="AudioStream" uid="uid://c26lmnf0horkw" path="res://assets/freesound_community-success-fanfare-trumpets-6185.mp3" id="9_choun"]
-[ext_resource type="AudioStream" uid="uid://i82ouo76vnus" path="res://assets/freesound_community-bit-crushed-lofi-synthomatic-2-34102.mp3" id="10_ya4ey"]
+[ext_resource type="AudioStream" uid="uid://v3h14ilql75p" path="res://assets/audio/sfx/floraphonic-classic-game-action-negative-18-224576.mp3" id="8_tipki"]
+[ext_resource type="AudioStream" uid="uid://c26lmnf0horkw" path="res://assets/audio/sfx/freesound_community-success-fanfare-trumpets-6185.mp3" id="9_choun"]
+[ext_resource type="AudioStream" uid="uid://i82ouo76vnus" path="res://assets/audio/music/freesound_community-bit-crushed-lofi-synthomatic-2-34102.mp3" id="10_ya4ey"]
 
 [sub_resource type="Environment" id="Environment_tbgi4"]
 background_mode = 3
