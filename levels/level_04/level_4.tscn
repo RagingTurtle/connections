@@ -4,8 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://hswioqbmbfgd" path="res://levels/level_04/icon.svg" id="2_s2ta8"]
 [ext_resource type="PackedScene" uid="uid://c84bh4alndy6c" path="res://components/connection_logic/connection_point.tscn" id="3_04aki"]
 
-[node name="Level2" type="Node2D" unique_id=1723361798]
+[node name="Level2" type="Node2D" unique_id=1723361798 node_paths=PackedStringArray("completion_image")]
 script = ExtResource("1_6q0t8")
+completion_image = NodePath("Sprite2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=12137269]
 position = Vector2(190.99998, 108)

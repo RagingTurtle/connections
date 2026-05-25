@@ -1,9 +1,16 @@
 extends Node2D
 
-@onready var sprite_2d: Sprite2D = $Sprite2D
+@export var completion_image: CanvasItem
 
 func _ready() -> void:
-	sprite_2d.visible = false
+	if not completion_image and has_node("Sprite2D"):
+		completion_image = $Sprite2D
+		
+	set_reveal_visibility(false)
 	
 func _on_level_complete() -> void:
-	sprite_2d.visible = true
+	set_reveal_visibility(true)
+	
+func set_reveal_visibility(is_visible: bool) -> void:
+	if completion_image:
+		completion_image.visible = is_visible

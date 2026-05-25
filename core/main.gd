@@ -65,9 +65,6 @@ func load_level(level: Node2D) -> void:
 	win_ui.visible = false
 	current_connection_point_index = 0 
 	
-	if level.has_node("Sprite2D"):
-		level.get_node("Sprite2D").visible = false
-
 	points_list.clear()
 	
 	var all_dots = get_tree().get_nodes_in_group("connection")
