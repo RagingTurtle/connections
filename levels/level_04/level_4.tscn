@@ -1,0 +1,94 @@
+[gd_scene format=3 uid="uid://hp08cnvwtyeh"]
+
+[ext_resource type="Script" uid="uid://c1bg826ihmm0e" path="res://levels/level.gd" id="1_6q0t8"]
+[ext_resource type="Texture2D" uid="uid://hswioqbmbfgd" path="res://levels/level_04/icon.svg" id="2_s2ta8"]
+[ext_resource type="PackedScene" uid="uid://c84bh4alndy6c" path="res://components/connection_point.tscn" id="3_04aki"]
+
+[node name="Level2" type="Node2D" unique_id=1723361798]
+script = ExtResource("1_6q0t8")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=12137269]
+position = Vector2(190.99998, 108)
+scale = Vector2(1.88, 1.88)
+texture = ExtResource("2_s2ta8")
+centered = false
+
+[node name="ConnectionPoint" parent="." unique_id=1011892367 instance=ExtResource("3_04aki")]
+position = Vector2(236, 212)
+_point_number = 1
+
+[node name="ConnectionPoint2" parent="." unique_id=1102148457 instance=ExtResource("3_04aki")]
+position = Vector2(224, 197)
+_point_number = 2
+
+[node name="ConnectionPoint3" parent="." unique_id=1798558152 instance=ExtResource("3_04aki")]
+position = Vector2(241, 179)
+_point_number = 3
+
+[node name="ConnectionPoint4" parent="." unique_id=1511110310 instance=ExtResource("3_04aki")]
+position = Vector2(255, 185)
+_point_number = 4
+
+[node name="ConnectionPoint5" parent="." unique_id=1939716 instance=ExtResource("3_04aki")]
+position = Vector2(273, 174)
+_point_number = 5
+
+[node name="ConnectionPoint6" parent="." unique_id=252326362 instance=ExtResource("3_04aki")]
+position = Vector2(271, 156)
+_point_number = 6
+
+[node name="ConnectionPoint7" parent="." unique_id=814669979 instance=ExtResource("3_04aki")]
+position = Vector2(294, 146)
+_point_number = 7
+
+[node name="ConnectionPoint8" parent="." unique_id=862793226 instance=ExtResource("3_04aki")]
+position = Vector2(301, 161)
+_point_number = 8
+
+[node name="ConnectionPoint9" parent="." unique_id=137024013 instance=ExtResource("3_04aki")]
+position = Vector2(320, 165)
+_point_number = 9
+
+[node name="ConnectionPoint10" parent="." unique_id=1751767800 instance=ExtResource("3_04aki")]
+position = Vector2(330, 147)
+_point_number = 10
+
+[node name="ConnectionPoint11" parent="." unique_id=1417292412 instance=ExtResource("3_04aki")]
+position = Vector2(352, 155)
+_point_number = 11
+
+[node name="ConnectionPoint12" parent="." unique_id=641114426 instance=ExtResource("3_04aki")]
+position = Vector2(350, 174)
+_point_number = 12
+
+[node name="ConnectionPoint13" parent="." unique_id=945220505 instance=ExtResource("3_04aki")]
+position = Vector2(369, 184)
+_point_number = 13
+
+[node name="ConnectionPoint14" parent="." unique_id=780977304 instance=ExtResource("3_04aki")]
+position = Vector2(384, 178)
+_point_number = 14
+
+[node name="ConnectionPoint15" parent="." unique_id=1912457412 instance=ExtResource("3_04aki")]
+position = Vector2(402, 193)
+_point_number = 15
+
+[node name="ConnectionPoint16" parent="." unique_id=1120057700 instance=ExtResource("3_04aki")]
+position = Vector2(388, 210)
+_point_number = 16
+
+[node name="ConnectionPoint17" parent="." unique_id=314774600 instance=ExtResource("3_04aki")]
+position = Vector2(389, 282)
+_point_number = 17
+
+[node name="ConnectionPoint18" parent="." unique_id=1237231517 instance=ExtResource("3_04aki")]
+position = Vector2(348, 309)
+_point_number = 18
+
+[node name="ConnectionPoint19" parent="." unique_id=1542317001 instance=ExtResource("3_04aki")]
+position = Vector2(285, 309)
+_point_number = 19
+
+[node name="ConnectionPoint20" parent="." unique_id=1834927711 instance=ExtResource("3_04aki")]
+position = Vector2(235, 281)
+_point_number = 20
